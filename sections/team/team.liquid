@@ -1,0 +1,171 @@
+{{- 'section-team.css' | asset_url | stylesheet_tag -}}
+
+{% if section.blocks %}
+  <style>
+    [data-section-id="{{ section.id }}"] {
+      padding-top: {{ section.settings.padding_top_mb }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media (min-width: 768px) {
+      [data-section-id="{{ section.id }}"] {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  </style>
+{% endif %}
+
+<div class="team" data-section-id="{{ section.id }}">
+    <div class="team_subtitle">
+        <h4>{{ section.settings.subtitle }}</h4>
+    </div>
+    <div class="team_title">
+        <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="team_description">{{ section.settings.description }}</div>
+    {% for block in section.blocks %}
+        <div class="team_item">
+            <div class="team_item-image">
+                {% render 'image',
+                    image: block.settings.image,
+                    class: '',
+                %}
+            </div>
+            <div class="team_item-name">
+                {{ block.settings.name }}
+            </div>
+            <div class="team_item-social">
+                <div></div>
+                <ul>
+                    <li><a target="_blank" href="{{ block.settings.facebook }}">{% render 'icon-facebook-new' %}</a></li>
+                    <li><a target="_blank" href="{{ block.settings.instagram }}">{% render 'icon-instagram-new' %}</a></li>
+                    <li><a target="_blank" href="{{ block.settings.twitter }}">{% render 'icon-twitter-new' %}</a></li>
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "Our Team",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Section Information"
+        },
+        {
+            "type": "text",
+            "id": "Subtitle",
+            "label": "Subtitle"
+        },
+        {
+            "type": "text",
+            "id": "Title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "Description",
+            "label": "Description"
+        },
+        {
+            "type": "header",
+            "content": "Section Padding Desktop"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "label": "Padding Top",
+            "max": 100,
+            "min": 0,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding Bottom",
+            "max": 100,
+            "min": 0,
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Section Padding Mobile"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mb",
+            "label": "Padding Top",
+            "max": 100,
+            "min": 0,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mb",
+            "label": "Padding Bottom",
+            "max": 100,
+            "min": 0,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "Item",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "header",
+                    "content": "Name"
+                },
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Name"
+                },
+                {
+                    "type": "header",
+                    "content": "Social Information"
+                },
+                {
+                    "type": "url",
+                    "id": "facebook",
+                    "label": "Facebook"
+                },
+                {
+                    "type": "url",
+                    "id": "instagram",
+                    "label": "Instagram"
+                },
+                {
+                    "type": "url",
+                    "id": "twitter",
+                    "label": "Twitter"
+                }
+            ]
+        }   
+    ],
+    "presets": [
+        {
+            "name": "Our Team",
+            "blocks": [
+                {
+                "type": "item"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
