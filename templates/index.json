@@ -66,10 +66,71 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "team_EVbdnX": {
+      "type": "team",
+      "blocks": {
+        "item_mjiL8m": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/user-1.jpg",
+            "name": "Julian Jameson",
+            "facebook": "https:\/\/www.facebook.com\/",
+            "instagram": "https:\/\/www.instagram.com\/",
+            "twitter": "https:\/\/twitter.com\/"
+          }
+        },
+        "item_HyXFBV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/user-2.jpg",
+            "name": "Julian Jameson",
+            "facebook": "#",
+            "instagram": "#",
+            "twitter": "#"
+          }
+        },
+        "item_yQJahF": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/user-3.jpg",
+            "name": "Julian Jameson",
+            "facebook": "#",
+            "instagram": "#",
+            "twitter": "#"
+          }
+        },
+        "item_hBTR4p": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/user-4.jpg",
+            "name": "Julian Jameson",
+            "facebook": "#",
+            "instagram": "#",
+            "twitter": "#"
+          }
+        }
+      },
+      "block_order": [
+        "item_mjiL8m",
+        "item_HyXFBV",
+        "item_yQJahF",
+        "item_hBTR4p"
+      ],
+      "settings": {
+        "subtitle": "Team",
+        "title": "Get Quality Education",
+        "description": "<p>Problems trying to resolve the conflict between <br\/>the two major realms of Classical physics: Newtonian mechanics <\/p>",
+        "padding_top": 30,
+        "padding_bottom": 35,
+        "padding_top_mb": 30,
+        "padding_bottom_mb": 35
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "team_EVbdnX"
   ]
 }

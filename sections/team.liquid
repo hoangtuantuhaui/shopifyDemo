@@ -1,4 +1,4 @@
-{{- 'section-team.css' | asset_url | stylesheet_tag -}}
+{{ 'section-team.scss' | asset_url | stylesheet_tag }}
 
 {% if section.blocks %}
   <style>
@@ -16,35 +16,40 @@
   </style>
 {% endif %}
 
-<div class="team" data-section-id="{{ section.id }}">
-    <div class="team_subtitle">
-        <h4>{{ section.settings.subtitle }}</h4>
-    </div>
-    <div class="team_title">
-        <h2>{{ section.settings.title }}</h2>
-    </div>
-    <div class="team_description">{{ section.settings.description }}</div>
-    {% for block in section.blocks %}
-        <div class="team_item">
-            <div class="team_item-image">
-                {% render 'image',
-                    image: block.settings.image,
-                    class: '',
-                %}
-            </div>
-            <div class="team_item-name">
-                {{ block.settings.name }}
-            </div>
-            <div class="team_item-social">
-                <div></div>
-                <ul>
-                    <li><a target="_blank" href="{{ block.settings.facebook }}">{% render 'icon-facebook-new' %}</a></li>
-                    <li><a target="_blank" href="{{ block.settings.instagram }}">{% render 'icon-instagram-new' %}</a></li>
-                    <li><a target="_blank" href="{{ block.settings.twitter }}">{% render 'icon-twitter-new' %}</a></li>
-                </ul>
-            </div>
+<div class="container-section team" data-section-id="{{ section.id }}">
+    {% if section.settings.subtitle %}
+        <h6 class="team_subtitle">{{ section.settings.subtitle }}</h6>
+    {% endif %}
+    {% if section.settings.title %}
+        <h2 class="team_title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.description %}
+        <div class="team_description">{{ section.settings.description }}</div>
+    {% endif %}
+    {% if section.blocks %}
+        <div class="team_items">
+            {% for block in section.blocks %}
+                <div class="team_item">
+                    <div class="team_item-image">
+                        <img src="{{ block.settings.image | image_url}}" alt="{{ block.settings.name }}" width="{{ block.image.width }}" height="{{ block.image.height }}"/>
+                    </div>
+                    <div class="team_item-content">
+                        <div class="team_item-name">
+                            {{ block.settings.name }}
+                        </div>
+                        <div class="team_item-social">
+                            <p>{{ 'Profession' }}</p>
+                            <ul>
+                                <li><a target="_blank" href="{{ block.settings.facebook }}">{% render 'icon-facebook-new' %}</a></li>
+                                <li><a target="_blank" href="{{ block.settings.instagram }}">{% render 'icon-instagram-new' %}</a></li>
+                                <li><a target="_blank" href="{{ block.settings.twitter }}">{% render 'icon-twitter-new' %}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    {% endif %}
 </div>
 
 {% schema %}
@@ -58,17 +63,17 @@
         },
         {
             "type": "text",
-            "id": "Subtitle",
+            "id": "subtitle",
             "label": "Subtitle"
         },
         {
             "type": "text",
-            "id": "Title",
+            "id": "title",
             "label": "Title"
         },
         {
             "type": "richtext",
-            "id": "Description",
+            "id": "description",
             "label": "Description"
         },
         {

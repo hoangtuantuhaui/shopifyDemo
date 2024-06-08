@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+.container-section {
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.team {
+    font-family: "Montserrat", sans-serif;
+
+    .team_subtitle {
+        color: #96BB7C;
+        display: block;
+        font-size: 14px;
+        font-family: "Montserrat", sans-serif;
+        line-height: 24px;
+        font-weight: 700;
+        letter-spacing: .2px;
+        margin: 0 0 10px;
+    }
+
+    .team_title {
+        color: #252B42;
+        display: block;
+        font-size: 24px;
+        font-family: "Montserrat", sans-serif;
+        line-height: 32px;
+        font-weight: 700;
+        letter-spacing: .1px;
+        margin: 0 0 10px;
+    }
+
+    .team_description {
+        color: #737373;
+        font-size: 14px;
+        font-family: "Montserrat", sans-serif;
+        line-height: 20px;
+        font-weight: 400;
+        letter-spacing: .2px;
+
+        p {
+            margin: 0 0 10px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+
+    .team_items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 30px;
+
+        .team_item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.07) 0 0 13px 0, rgba(0, 0, 0, 0.07) 0 0 19px 0;
+            width: 100%;
+
+            .team_item-image {
+                display: block;
+                line-height: 0;
+                position: relative;
+                padding-bottom: 103.03%;
+                overflow: hidden;
+                margin: 0 0 20px;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+
+                    &:hover {
+                        transform: scale(1.05);
+                        transition: .5s all;
+                    }
+                }
+            }
+
+            .team_item-content {
+                padding: 0 10px 30px;
+            }
+
+            .team_item-name {
+                color: #252B42;
+                display: block;
+                font-size: 16px;
+                font-family: 'Montserrat', sans-serif;
+                line-height: 24px;
+                font-weight: 700;
+                letter-spacing: .1px;
+                text-align: center;
+                margin: 0 0 10px;
+            }
+
+            .team_item-social {
+                p {
+                    color: #737373;
+                    font-size: 12px;
+                    font-family: 'Montserrat', sans-serif;
+                    line-height: 16px;
+                    font-weight: 400;
+                    letter-spacing: .2px;
+                    text-align: center;
+                    margin: 0 0 10px;
+                }
+                ul {
+                    list-style: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 20px;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        padding: 0;
+                        margin: 0;
+
+                        a {
+                            display: flex;
+                            justify-content: center;
+
+                            &:hover {
+                                opacity: .6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .team {
+        .team_items {
+            gap: 15px;
+
+            .team_item {
+                width: calc((100% - 15px) / 2);
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .team {
+        .team_items {
+            gap: 15px;
+            margin-top: 50px;
+
+            .team_item {
+                width: calc((100% - 45px) / 4);
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .team {
+        .team_items {
+            gap: 30px;
+
+            .team_item {
+                width: calc((100% - 90px) / 4);
+            }
+        }
+    }
+}
