@@ -1,19 +1,19 @@
-{{ 'section-team.scss' | asset_url | stylesheet_tag }}
+{{ 'section-team.css' | asset_url | stylesheet_tag }}
 
 {% if section.blocks %}
-  <style>
-    [data-section-id="{{ section.id }}"] {
-      padding-top: {{ section.settings.padding_top_mb }}px;
-      padding-bottom: {{ section.settings.padding_bottom_mb }}px;
-    }
+    <style>
+        [data-section-id="{{ section.id }}"] {
+            padding-top: {{ section.settings.padding_top_mb }}px;
+            padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+        }
 
-    @media (min-width: 768px) {
-      [data-section-id="{{ section.id }}"] {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
-    }
-  </style>
+        @media (min-width: 768px) {
+            [data-section-id="{{ section.id }}"] {
+                padding-top: {{ section.settings.padding_top }}px;
+                padding-bottom: {{ section.settings.padding_bottom }}px;
+            }
+        }
+    </style>
 {% endif %}
 
 <div class="container-section team" data-section-id="{{ section.id }}">
